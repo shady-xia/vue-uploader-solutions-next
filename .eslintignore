@@ -1,0 +1,14 @@
+src/assets
+src/icons
+dist
+public
+index.html
+*.sh
+node_modules
+*.md
+*.woff
+*.ttf
+.vscode
+.idea
+/docs
+*.d.ts
