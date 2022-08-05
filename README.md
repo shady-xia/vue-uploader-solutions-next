@@ -34,7 +34,7 @@ node服务会打开3000端口，临时文件存在 tmp 目录下，上传成功�
 
 ### GlobalUploader
 
-`GlobalUploader.vue` 为基于 `vue-simple-uploader` 二次封装的上传插件，源码路径为 `/vue-simple-uploader/GlobalUploader.vue`
+`GlobalUploader.vue` 为基于 `vue-simple-uploader` 二次封装的上传插件
 
 它有两种使用方式：
 
