@@ -36,11 +36,10 @@
                 v-for="file in fileList"
                 :key="file.id"
                 class="file-item"
-                :class="`file-${file.id}`"
               >
                 <uploader-file
                   ref="files"
-                  :class="'file_' + file.id"
+                  :class="['file_' + file.id, customStatus]"
                   :file="file"
                   :list="true"
                 ></uploader-file>
@@ -127,6 +126,7 @@ export default {
       paused: '已暂停',
       waiting: '等待上传'
     }
+    const customStatus = ref('')
     const panelShow = ref(false)
     const collapse = ref(false)
     const uploaderRef = ref()
@@ -295,6 +295,7 @@ export default {
         }
       }
 
+      customStatus.value = status
       nextTick(() => {
         const statusTag = document.createElement('p')
         statusTag.className = `custom-status-${id} custom-status`
@@ -306,6 +307,7 @@ export default {
       })
     }
     function statusRemove(id) {
+      customStatus.value = ''
       nextTick(() => {
         const statusTag = document.querySelector(`.custom-status-${id}`)
         statusTag.remove()
@@ -339,6 +341,7 @@ export default {
     return {
       initOptions,
       fileStatusText,
+      customStatus,
       panelShow,
       collapse,
       uploaderRef,
@@ -426,6 +429,14 @@ export default {
 
     svg {
       vertical-align: text-bottom;
+    }
+  }
+
+  .uploader-file {
+    &.md5 {
+      .uploader-file-resume {
+        display: none;
+      }
     }
   }
 
